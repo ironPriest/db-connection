@@ -1,6 +1,5 @@
 import {Request, Response, Router} from 'express'
 import {productsRepository} from '../repositories/products-repository'
-import {body, validationResult} from 'express-validator'
 
 export const productsRouter = Router({})
 
@@ -12,11 +11,6 @@ productsRouter.post('/',
 
 productsRouter.put('/:id',
     (req: Request, res: Response) => {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-            return res.status(400).json({errors: errors.array()})
-        }
-
         const isUpdated = productsRepository.updateProduct(+req.params.id, req.body.title)
         if (isUpdated) {
             const product = productsRepository.findProductById(+req.params.id)
