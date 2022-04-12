@@ -33,7 +33,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/products/2",
+							"raw": "http://localhost:5000/products/1649699281798",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -41,7 +41,7 @@
 							"port": "5000",
 							"path": [
 								"products",
-								"2"
+								"1649699281798"
 							]
 						}
 					},
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":  \"     \",\r\n    \"url\": \"https://bla.com\",\r\n    \"age\": 18,\r\n    \"bio\": \"sdfsdfs fssdfsdfs fds\"\r\n}",
+							"raw": "{\r\n    \"title\":  \"Limon\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -82,7 +82,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":  \"     \",\r\n    \"url\": \"https://bla.com\",\r\n    \"age\": 18,\r\n    \"bio\": \"sdfsdfs fssdfsdfs fds\"\r\n}",
+							"raw": "{\r\n    \"title\":  \"Orange2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,7 +90,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/products/1",
+							"raw": "http://localhost:5000/products/1649703084329",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -98,7 +98,27 @@
 							"port": "5000",
 							"path": [
 								"products",
-								"1"
+								"1649703084329"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/products/1649699297130",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"1649699297130"
 							]
 						}
 					},
