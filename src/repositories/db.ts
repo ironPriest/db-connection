@@ -1,7 +1,6 @@
 import {MongoClient} from 'mongodb'
 
-const mongoUri =
-    process.env.mongoURI = "mongodb://0.0.0.0:27017/?maxPoolSize=20&w=majority";
+const mongoUri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
 
 export const client = new MongoClient(mongoUri);
 
@@ -14,6 +13,7 @@ export async function runDb() {
         console.log("Connected successfully to mongo server");
 
     } catch {
+        console.log("Can't connect to db");
         // Ensures that the client will close when you finish/error
         await client.close();
     }
