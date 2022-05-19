@@ -1,46 +1,42 @@
 {
 	"info": {
-		"_postman_id": "f2a090fc-50d3-44bc-9c54-10ea9c562356",
+		"_postman_id": "26caa570-c2a4-49c7-bd62-4eb487846721",
 		"name": "IT-INCUBATOR-3-LESSON",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "01-REST Copy",
+			"name": "Instagram - photos",
 			"item": [
 				{
-					"name": "Get Products",
+					"name": "Get Photos",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/products",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/photos",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"products"
+								"photos"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete Single Product",
+					"name": "Delete Photo",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/products/1649699281798",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/photos/1649699281798",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"products",
+								"photos",
 								"1649699281798"
 							]
 						}
@@ -48,13 +44,13 @@
 					"response": []
 				},
 				{
-					"name": "Create Product",
+					"name": "Create Photo",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":  \"Limon\"\r\n}",
+							"raw": "{\r\n    \"userId\":  \"2331fes2323ff\",\r\n    \"imageSrc\": \"https://blabla.com/avatar.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,27 +58,25 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/products",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/photos",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"products"
+								"photos"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Update Product",
+					"name": "Update Photo Description",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":  \"Orange2\"\r\n}",
+							"raw": "{\r\n    \"description\":  \"Watch my photo and be happy\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,14 +84,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/products/1649703084329",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/photos/1649703084329",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"products",
+								"photos",
 								"1649703084329"
 							]
 						}
@@ -105,19 +97,128 @@
 					"response": []
 				},
 				{
-					"name": "Get Product",
+					"name": "Get Photo",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/products/1649699297130",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/photos/1649699297130",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"products",
+								"photos",
+								"1649699297130"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instagram - users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users/1649699281798",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1649699281798"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":  \"dimych\",\r\n    \"description\": \"I am a developer blogger\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":  \"Dmitry\",\r\n    \"description\":  \"I am the best of the best coder\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/1649703084329",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"1649703084329"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/photos/1649699297130",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"photos",
 								"1649699297130"
 							]
 						}
