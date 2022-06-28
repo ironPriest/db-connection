@@ -1,6 +1,6 @@
 import {Request, Response, Router} from 'express'
 import { ObjectId } from 'mongodb'
-import {usersRepository} from '../repositories/users-repository'
+import {usersRepository} from '../repositories/users-in-memory-repository'
 
 export const usersRouter = Router({})
 
