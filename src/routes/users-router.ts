@@ -1,18 +1,18 @@
 import {Request, Response, Router} from 'express'
 import { ObjectId } from 'mongodb'
-import {usersRepository} from '../repositories/users-in-memory-repository'
+import {usersRepository} from '../repositories/users-db-repository'
 
 export const usersRouter = Router({})
 
 usersRouter.post('/',
-    (req: Request<{},{},{userName: string, description: string}>, res: Response) => {
-        const photo = usersRepository.createUser(req.body.userName, req.body.description)
+    async (req: Request<{}, {}, { userName: string, description: string }>, res: Response) => {
+        const photo = await usersRepository.createUser(req.body.userName, req.body.description)
         res.status(201).send(photo)
     })
 
 usersRouter.put('/:id',
-    (req: Request<{id: string},{userName: string, description: string}>, res: Response) => {
-        const isUpdated = usersRepository.updateUser(new ObjectId(req.params.id), req.body.description, req.body.userName)
+    async (req: Request<{ id: string }, { userName: string, description: string }>, res: Response) => {
+        const isUpdated = await usersRepository.updateUser(new ObjectId(req.params.id), req.body.description, req.body.userName)
         if (isUpdated) {
             res.send(204)
         } else {
@@ -20,13 +20,13 @@ usersRouter.put('/:id',
         }
     })
 
-usersRouter.get('/', (req: Request, res: Response) => {
-    const users = usersRepository.getUsers()
+usersRouter.get('/', async (req: Request, res: Response) => {
+    const users = await usersRepository.getUsers()
     res.send(users)
 })
 
-usersRouter.get('/:id', (req: Request<{id: string}>, res: Response) => {
-    let user = usersRepository.getUser(new ObjectId(req.params.id))
+usersRouter.get('/:id', async (req: Request<{ id: string }>, res: Response) => {
+    let user = await usersRepository.getUser(new ObjectId(req.params.id))
     if (user) {
         res.send(user)
     } else {
