@@ -7,18 +7,36 @@ export const usersRepository = {
         return usersCollection.find({}).toArray()
     },
     async getUser(id: ObjectId): Promise<UserDBType | null> {
-        return null
+        let foundedUser = usersCollection.findOne({_id: id})
+        return foundedUser
     },
+
+    // shitcode goes below
     async createUser(userName: string, description: string): Promise<UserDBType> {
-        return {_id: new ObjectId(), userName: '', description: '', addedAt: new Date()}
+        let justAddedUser
+        /* await ? */usersCollection.insertOne(justAddedUser = {_id: new ObjectId(), userName: userName, description: description, addedAt: new Date()})
+        return justAddedUser
     },
+    // shitcode ends here
     async updateUser(id: ObjectId, userName: string, description: string): Promise<boolean> {
-        return true
+        let user = usersCollection.find({_id: id})
+        if (user) {
+            /* await? */usersCollection.updateOne({_id: id}, {$set: {userName: userName, description: description}})
+            return true
+        } else {
+            return false
+        }
     },
     /*
     Delete user and all his photos
      */
     async deleteUser(id: ObjectId): Promise<boolean> {
-        return true
+        let user = usersCollection.find({_id: id})
+        if (user) {
+            /* await? */usersCollection.deleteOne({_id: id})
+            return true
+        } else {
+            return false
+        }
     }
 }

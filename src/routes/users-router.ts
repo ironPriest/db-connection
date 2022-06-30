@@ -6,13 +6,13 @@ export const usersRouter = Router({})
 
 usersRouter.post('/',
     async (req: Request<{}, {}, { userName: string, description: string }>, res: Response) => {
-        const photo = await usersRepository.createUser(req.body.userName, req.body.description)
-        res.status(201).send(photo)
+        const user = await usersRepository.createUser(req.body.userName, req.body.description)
+        res.status(201).send(user)
     })
 
 usersRouter.put('/:id',
     async (req: Request<{ id: string }, { userName: string, description: string }>, res: Response) => {
-        const isUpdated = await usersRepository.updateUser(new ObjectId(req.params.id), req.body.description, req.body.userName)
+        const isUpdated = await usersRepository.updateUser(new ObjectId(req.params.id), req.body.userName, req.body.description)
         if (isUpdated) {
             res.send(204)
         } else {

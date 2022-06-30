@@ -1,6 +1,6 @@
 import {Request, Response, Router} from 'express'
 import { ObjectId } from 'mongodb'
-import {photosRepository} from '../repositories/photos-in-memory-repository'
+import {photosRepository} from '../repositories/photos-db-repository'
 
 export const photosRouter = Router({})
 
